@@ -3,5 +3,5 @@ from rareapi.models import Category
 
 class CategorySerializer(serializers.ModelSerializer):
   class Meta:
-    Model = Category
+    model = Category
     fields = ('id', 'label')
