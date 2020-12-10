@@ -3,5 +3,5 @@ from rareapi.models import Tag
 
 class TagSerializer(serializers.ModelSerializer):
   class Meta:
-    Model = Tag
+    model = Tag
     fields = ('id', 'label')
