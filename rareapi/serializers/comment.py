@@ -4,7 +4,7 @@ from rareapi.models import Comment, Post
 class CommentSerializer(serializers.ModelSerializer):
   class Meta:
     model = Comment
-    fields = ('id', 'author_id', 'post_id', 'conent', 'subject', 'created_on')
+    fields = ('id', 'author_id', 'post_id', 'content', 'subject', 'created_on')
 
 class PostSerializer(serializers.ModelSerializer):
   class Meta:
