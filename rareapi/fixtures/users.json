@@ -16,5 +16,23 @@
             "groups": [],
             "user_permissions": []
         }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$216000$jBG7LfJN4x07$qrFxi2cl/SNpBb6RmRK0u5nx+y0ypax+iqD0a5w1EP0=",
+            "last_login": "2020-12-09 00:47:13.295617",
+            "is_superuser": false,
+            "username": "me2@me.com",
+            "first_name": "Me 2",
+            "last_name": "Me",
+            "email": "me@me.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2020-12-09 00:47:13.295617",
+            "groups": [],
+            "user_permissions": []
+        }
     }
 ]

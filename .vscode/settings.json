@@ -5,7 +5,7 @@
       "previewLimit": 50,
       "driver": "SQLite",
       "name": "rare-rest",
-      "database": "${workspaceFolder:rare}/db.sqlite3"
+      "database": "db.sqlite3"
     }
   ]
 }

@@ -1,0 +1,18 @@
+[   
+    {
+    "model": "rareapi.Category",
+    "pk": 1,
+    "fields": {
+        "label": "Beef"
+        }
+    },
+    {
+        "model": "rareapi.Category",
+        "pk": 2,
+        "fields": {
+            "label": "Jokes"
+        }
+    }
+
+
+]
