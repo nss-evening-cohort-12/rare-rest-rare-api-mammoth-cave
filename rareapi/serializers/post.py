@@ -1,7 +1,20 @@
 from rest_framework import serializers
-from rareapi.models import Post
+from rareapi.models import Post, RareUser
+from django.contrib.auth.models import User
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'first_name', 'last_name']
+
+class RareUserSerializer(serializers.ModelSerializer):
+    user_id = UserSerializer(read_only=True)
+    class Meta:
+        model = RareUser
+        fields = ('id', 'user_id')
+        depth = 1
 class PostSerializer(serializers.ModelSerializer):
-  class Meta:
-    model = Post
-    fields = ('id', 'user_id', 'category_id', 'title', 'publication_date', 'image_url', 'content', 'approved', 'tags')
+    user_id = RareUserSerializer(read_only=True)
+    class Meta:
+        model = Post
+        fields = ('id', 'user_id', 'category_id', 'title', 'publication_date', 'image_url', 'content', 'approved', 'tags')
