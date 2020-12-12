@@ -1,0 +1,50 @@
+[
+  {"model": "rareapi.Post",
+    "pk": 1,
+    "fields": {
+        "user_id": 1,
+        "category_id": 1,
+        "title": "A post title",
+        "publication_date": "2020-09-06",
+        "image_url": "https://tinyurl.com/yc6aczfz",
+        "content": "A bunch of words on A post. Pocket sand! Sh-sh-sha!",
+        "approved": "True"
+    }
+  },
+  {"model": "rareapi.Post",
+    "pk": 2,
+    "fields": {
+        "user_id": 1,
+        "category_id": 2,
+        "title": "B post title",
+        "publication_date": "2020-09-12",
+        "image_url": "https://tinyurl.com/yyxuqm45",
+        "content": "B bunch of words on B post. It's so much better frying at home. I can eat fried bananas while looking at Hank's house.",
+        "approved": "True"
+    }
+  },
+  {"model": "rareapi.Post",
+    "pk": 3,
+    "fields": {
+        "user_id": 1,
+        "category_id": 1,
+        "title": "C post title",
+        "publication_date": "2020-09-15",
+        "image_url": "https://tinyurl.com/y2dj7wey",
+        "content": "C bunch of words on C post. Hey.",
+        "approved": "False"
+    }
+  },
+  {"model": "rareapi.Post",
+    "pk": 4,
+    "fields": {
+        "user_id": 1,
+        "category_id": 2,
+        "title": "C post title",
+        "publication_date": "2020-09-15",
+        "image_url": "https://tinyurl.com/y4fft3vn",
+        "content": "D bunch of words on D post. Dale- “Do your people even celebrate Thanksgiving” John Redcorn- “We did, once”",
+        "approved": "True"
+    }
+  }
+]
