@@ -5,7 +5,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
-from levelupapi.models import Post, RareUser, Category, Tag
+from rareapi.models import Post, RareUser, Category, Tag
 
 class Posts(ViewSet):
 
