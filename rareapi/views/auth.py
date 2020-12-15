@@ -28,8 +28,9 @@ def login_user(request):
 
         # If authentication was successful, respond with their token
         if authenticated_user is not None:
+            rareuser = RareUser.objects.get(user_id=authenticated_user)
             token = Token.objects.get(user=authenticated_user)
-            data = json.dumps({"valid": True, "token": token.key})
+            data = json.dumps({"valid": True, "token": token.key, "user_id": rareuser.id})
             return HttpResponse(data, content_type='application/json')
 
         else:
@@ -74,5 +75,5 @@ def register_user(request):
     token = Token.objects.create(user=new_user)
 
     # Return the token to the client
-    data = json.dumps({"token": token.key})
+    data = json.dumps({"token": token.key, "user_id": rareuser.id})
     return HttpResponse(data, content_type='application/json')
