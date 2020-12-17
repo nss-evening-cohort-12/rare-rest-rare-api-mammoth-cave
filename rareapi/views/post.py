@@ -27,3 +27,14 @@ class PostViewSet(viewsets.ModelViewSet):
           return Response(serializer.data)
       else:
           return Response(serializer.errors, status=HttpResponseBadRequest.status_code)
+
+
+    def get_queryset(self):
+      user_id = self.request.query_params.get('user_id', None)
+      category_id = self.request.query_params.get('category_id', None)
+      if user_id:
+        return self.queryset.filter(user_id=user_id)
+      elif category_id:
+        return self.queryset.filter(category_id=category_id)
+      else:
+        return self.queryset
