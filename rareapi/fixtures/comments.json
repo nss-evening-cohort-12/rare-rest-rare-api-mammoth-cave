@@ -20,5 +20,27 @@
             "content": "No, You're dumb.",
             "subject": "No You're The Idiot!"
         }
+    },
+    {
+        "model": "rareapi.Comment",
+        "pk": 3,
+        "fields": {
+            "author_id": 2,
+            "post_id": 1,
+            "created_on": "2020-12-09",
+            "content": "No, You're dumb.3333",
+            "subject": "No You're The Idiot!3333"
+        }
+    },
+    {
+        "model": "rareapi.Comment",
+        "pk": 4,
+        "fields": {
+            "author_id": 1,
+            "post_id": 2,
+            "created_on": "2020-12-09",
+            "content": "No, You're dumb.44444444",
+            "subject": "No You're The Idiot!44444444"
+        }
     }
 ]
