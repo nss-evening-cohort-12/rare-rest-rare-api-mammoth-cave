@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from rareapi.models import Post, RareUser, Category
+from rareapi.models import Post, RareUser, Category, Tag
 from django.contrib.auth.models import User
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -17,9 +17,16 @@ class RareUserSerializer(serializers.ModelSerializer):
         model = RareUser
         fields = ('id', 'user_id')
         depth = 1
+
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
+        fields = ('id', 'label')
+
 class PostSerializer(serializers.ModelSerializer):
     user_id = RareUserSerializer(read_only=True)
     category_id = CategorySerializer(read_only=True)
+    tags = TagSerializer(read_only=True, many=True)
     class Meta:
         model = Post
         fields = ('id', 'user_id', 'category_id', 'title', 'publication_date', 'image_url', 'content', 'approved', 'tags')
