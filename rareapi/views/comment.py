@@ -2,7 +2,7 @@ from django.http.response import HttpResponseBadRequest
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rareapi.models import Comment
-from rareapi.serializers import CommentSerializer, CommentCreateSerializer, CommentUpdateSerializer
+from rareapi.serializers.comment import CommentCreateSerializer, CommentUpdateSerializer, CommentSerializer
 
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
@@ -27,9 +27,11 @@ class CommentViewSet(viewsets.ModelViewSet):
           return Response(serializer.errors, status=HttpResponseBadRequest.status_code)
 
     def get_queryset(self):
+      user_id = self.request.query_params.get('user_id', None)
       post_id = self.request.query_params.get('post_id', None)
-      if post_id:
+      if user_id:
+        return self.queryset.filter(user_id=user_id)
+      elif post_id:
         return self.queryset.filter(post_id=post_id)
       else:
         return self.queryset
-
