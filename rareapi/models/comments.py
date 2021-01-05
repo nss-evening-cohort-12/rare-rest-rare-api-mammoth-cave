@@ -2,7 +2,7 @@ from django.db import models
 from django.db.models.deletion import CASCADE
 
 class Comment(models.Model):
-    author_id = models.ForeignKey("RareUser",
+    user_id = models.ForeignKey("RareUser",
         on_delete=CASCADE,
         related_name="comments",
         related_query_name="comment")
