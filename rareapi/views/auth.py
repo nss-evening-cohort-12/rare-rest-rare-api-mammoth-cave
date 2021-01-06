@@ -30,7 +30,7 @@ def login_user(request):
         if authenticated_user is not None:
             rareuser = RareUser.objects.get(user_id=authenticated_user)
             token = Token.objects.get(user=authenticated_user)
-            data = json.dumps({"valid": True, "token": token.key, "user_id": rareuser.id})
+            data = json.dumps({"valid": True, "token": token.key, "user_id": rareuser.id, "isAdmin": authenticated_user.is_staff})
             return HttpResponse(data, content_type='application/json')
 
         else:
@@ -57,14 +57,14 @@ def register_user(request):
         password=req_body['password'],
         first_name=req_body['first_name'],
         last_name=req_body['last_name'],
-        is_staff=True
+        is_staff=False
     )
 
     rareuser = RareUser.objects.create(
         bio=req_body['bio'],
         created_on= date.today(),
         active=True,
-        profile_image_url="https://www.clipartkey.com/mpngs/m/14-140200_beef-clipart-rare-meat-circle.png",
+        profile_image_url=req_body["imgUrl"],
         user_id=new_user
     )
 
@@ -75,5 +75,5 @@ def register_user(request):
     token = Token.objects.create(user=new_user)
 
     # Return the token to the client
-    data = json.dumps({"token": token.key, "user_id": rareuser.id})
+    data = json.dumps({"valid": True, "token": token.key, "user_id": rareuser.id, "isAdmin": False})
     return HttpResponse(data, content_type='application/json')
