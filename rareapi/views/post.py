@@ -21,7 +21,7 @@ class PostViewSet(viewsets.ModelViewSet):
     
     def update(self, request, pk):
       post = self.get_object()
-      serializer = PostUpdateSerializer(post, data=request.data, partial=False)
+      serializer = PostUpdateSerializer(post, data=request.data, partial=True)
       if serializer.is_valid(raise_exception=True):
           serializer.save()
           return Response(serializer.data)
@@ -32,9 +32,12 @@ class PostViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
       user_id = self.request.query_params.get('user_id', None)
       category_id = self.request.query_params.get('category_id', None)
+      approved = self.request.query_params.get('approved', None)
       if user_id:
         return self.queryset.filter(user_id=user_id)
       elif category_id:
         return self.queryset.filter(category_id=category_id)
+      elif approved:
+        return self.queryset.filter(approved=True)
       else:
         return self.queryset
