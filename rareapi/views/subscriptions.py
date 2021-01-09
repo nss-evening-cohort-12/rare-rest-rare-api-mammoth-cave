@@ -10,10 +10,12 @@ class SubscriptionViewSet(viewsets.ModelViewSet):
     queryset = Subscription.objects.all()
     serializer_class = SubscriptionSerializer
 
+
     def get_queryset(self):
-        idsraw = self.request.query_params.get('ids', None)
-        if idsraw:
-            ids = json.loads(idsraw)
-            return self.queryset.filter(follower_id=ids["follower_id"]).filter(author_id=ids["author_id"])
+        author_id = self.request.query_params.get('author_id', None)
+        follower_id = self.request.query_params.get('follower_id', None)
+        if author_id and follower_id:
+            print(author_id, follower_id)
+            return self.queryset.filter(follower_id=follower_id).filter(author_id=author_id)
         else:
             return self.queryset
