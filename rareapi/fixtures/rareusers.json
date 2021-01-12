@@ -20,5 +20,16 @@
             "active": true,
             "user_id": 2
         }
+    },
+    {
+        "model": "rareapi.RareUser",
+        "pk": 3,
+        "fields": {
+            "bio": "This is the bio for me 4",
+            "profile_image_url": "https://www.clipartkey.com/mpngs/m/14-140200_beef-clipart-rare-meat-circle.png",
+            "created_on": "2020-12-09",
+            "active": true,
+            "user_id": 3
+        }
     }
 ]

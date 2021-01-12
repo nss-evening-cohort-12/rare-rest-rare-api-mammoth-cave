@@ -5,3 +5,4 @@ from .tag import TagViewSet
 from .rareuser import RareUserViewSet
 from .subscriptions import SubscriptionViewSet
 from .user import UserViewSet  
+from .image import ImageViewSet
