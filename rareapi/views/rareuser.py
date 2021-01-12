@@ -2,12 +2,12 @@ from django.http.response import HttpResponseBadRequest
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rareapi.models import RareUser
-from rareapi.serializers.rare_user import RareUserSerializer
+from rareapi.serializers.rare_user import DetailedRareUserSerializer
 
 
 class RareUserViewSet(viewsets.ModelViewSet):
     queryset = RareUser.objects.all()
-    serializer_class = RareUserSerializer
+    serializer_class = DetailedRareUserSerializer
 
     def get_queryset(self):
       user_id = self.request.query_params.get('user_id', None)

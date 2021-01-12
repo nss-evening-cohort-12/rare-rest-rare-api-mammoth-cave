@@ -15,7 +15,8 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', "is_staff"]
-  
+
+    
 class DetailedRareUserSerializer(serializers.ModelSerializer):
     user_id = UserSerializer(read_only=True)
     class Meta:
