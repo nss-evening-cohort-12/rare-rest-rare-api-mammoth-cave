@@ -12,6 +12,11 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', "is_staff"]
 
+class RareUserUpdateSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = RareUser
+    fields = ('id', 'bio', 'profile_image_url', 'created_on', 'active', 'user_id')
+
     
 class DetailedRareUserSerializer(serializers.ModelSerializer):
     user_id = UserSerializer(read_only=True)
