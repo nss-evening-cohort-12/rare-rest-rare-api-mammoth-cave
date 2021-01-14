@@ -29,9 +29,15 @@ def login_user(request):
         # If authentication was successful, respond with their token
         if authenticated_user is not None:
             rareuser = RareUser.objects.get(user_id=authenticated_user)
-            token = Token.objects.get(user=authenticated_user)
-            data = json.dumps({"valid": True, "token": token.key, "user_id": rareuser.id, "isAdmin": authenticated_user.is_staff})
-            return HttpResponse(data, content_type='application/json')
+            if Rareuser.active == True:
+                token = Token.objects.get(user=authenticated_user)
+                data = json.dumps({"valid": True, "token": token.key, "user_id": rareuser.id, "isAdmin": authenticated_user.is_staff})
+                return HttpResponse(data, content_type='application/json')
+
+            else:
+                # Bad login details were provided. So we can't log the user in.
+                data = json.dumps({"valid": False})
+                return HttpResponse(data, content_type='application/json')
 
         else:
             # Bad login details were provided. So we can't log the user in.
