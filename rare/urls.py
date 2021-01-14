@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
-from rareapi.views import register_user, login_user, CategoryViewSet, CommentViewSet, TagViewSet, SubscriptionViewSet, UserViewSet, RareUserViewSet, ImageViewSet
+from rareapi.views import register_user, login_user, CategoryViewSet, CommentViewSet, TagViewSet, SubscriptionViewSet, UserViewSet, RareUserViewSet, ImageViewSet, PostReactionViewSet, ReactionViewSet
 from rareapi.views.post import PostViewSet
 from django.conf.urls.static import static
 from django.conf import settings
@@ -31,6 +31,8 @@ router.register(r'rareusers', RareUserViewSet, 'rareuser')
 router.register(r'subscriptions', SubscriptionViewSet, 'subscription')
 router.register(r'users', UserViewSet, 'user' )
 router.register(r'images', ImageViewSet, 'image')
+router.register(r'postreactions', PostReactionViewSet, 'postreaction')
+router.register(r'reactions', ReactionViewSet, 'reaction')
 
 urlpatterns = [
     path('', include(router.urls)),

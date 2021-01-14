@@ -5,3 +5,5 @@ from .tag import TagSerializer
 from .subscriptions import SubscriptionSerializer
 from .rare_user import RareUserSerializer, DetailedRareUserSerializer
 from .image import ImageSerializer
+from .postReaction import PostReactionSerializer
+from .reaction import ReactionSerializer

@@ -6,3 +6,5 @@ from .rareuser import RareUserViewSet
 from .subscriptions import SubscriptionViewSet
 from .user import UserViewSet  
 from .image import ImageViewSet
+from .postReaction import PostReactionViewSet
+from .reactions import ReactionViewSet

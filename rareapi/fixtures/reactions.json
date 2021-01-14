@@ -1,0 +1,35 @@
+[
+    {
+      "model": "rareapi.reaction",
+      "pk": 1,
+      "fields": {
+        "label": "+1",
+        "img_url": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/271/thumbs-up_1f44d.png"
+      }
+    },
+    {
+      "model": "rareapi.reaction",
+      "pk": 2,
+      "fields": {
+        "label": "-1",
+        "img_url": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/271/thumbs-down_1f44e.png"
+      }
+    },
+    {
+      "model": "rareapi.reaction",
+      "pk": 3,
+      "fields": {
+        "label": "LOL",
+        "img_url": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/271/face-with-tears-of-joy_1f602.png"
+      }
+    },
+    {
+      "model": "rareapi.reaction",
+      "pk": 4,
+      "fields": {
+        "label": "Cry",
+        "img_url": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/271/loudly-crying-face_1f62d.png"
+      }
+    }
+  ]
+  
