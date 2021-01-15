@@ -11,3 +11,8 @@ class PostReactionSerializer(serializers.ModelSerializer):
   class Meta:    
     model = PostReaction
     fields = ('id', 'user_id', 'post_id', 'reaction_id')
+
+class PostPostReactionSerializer(serializers.ModelSerializer):
+  class Meta:
+    model= PostReaction
+    fields = ('id', 'user_id', 'post_id', 'reaction_id')
