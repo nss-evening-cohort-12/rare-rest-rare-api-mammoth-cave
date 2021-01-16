@@ -17,20 +17,26 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
-from rareapi.views import register_user, login_user, CategoryViewSet, CommentViewSet, TagViewSet, SubscriptionViewSet, UserViewSet
+from rareapi.views import register_user, login_user, CategoryViewSet, CommentViewSet, TagViewSet, SubscriptionViewSet, UserViewSet, RareUserViewSet, ImageViewSet, PostReactionViewSet, ReactionViewSet
 from rareapi.views.post import PostViewSet
+from django.conf.urls.static import static
+from django.conf import settings
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'categories', CategoryViewSet, 'category')
 router.register(r'comments', CommentViewSet, 'comment')
 router.register(r'posts', PostViewSet, 'post')
 router.register(r'tags', TagViewSet, 'tag')
+router.register(r'rareusers', RareUserViewSet, 'rareuser')
 router.register(r'subscriptions', SubscriptionViewSet, 'subscription')
 router.register(r'users', UserViewSet, 'user' )
+router.register(r'images', ImageViewSet, 'image')
+router.register(r'postreactions', PostReactionViewSet, 'postreaction')
+router.register(r'reactions', ReactionViewSet, 'reaction')
 
 urlpatterns = [
     path('', include(router.urls)),
     path('register', register_user),
     path('login', login_user),
     path('admin/', admin.site.urls),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
