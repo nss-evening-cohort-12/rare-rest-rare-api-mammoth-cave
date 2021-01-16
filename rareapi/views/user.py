@@ -1,14 +1,16 @@
 from rest_framework import viewsets
 from rareapi.models import RareUser
-from rareapi.serializers import RareUserSerializer, DetailedRareUserSerializer
+from rest_framework.response import Response
+from django.contrib.auth.models import User
+from rareapi.serializers import RareUserSerializer, DetailedRareUserSerializer, UserSerializer
 from rareapi.serializers.rare_user import RareUserUpdateSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = RareUser.objects.all()
+    queryset = User.objects.all()
 
     def update(self, request, pk):
       post = self.get_object()
-      serializer = RareUserUpdateSerializer(post, data=request.data, partial=False)
+      serializer = UserSerializer(post, data=request.data, partial=True)
       if serializer.is_valid(raise_exception=True):
           serializer.save()
           return Response(serializer.data)
